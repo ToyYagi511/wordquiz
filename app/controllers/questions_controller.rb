@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+  before_action :set_question, only: [:edit, :update, :destroy]
 
   def index
     respond_to do |format|
@@ -30,18 +31,29 @@ class QuestionsController < ApplicationController
   end
 
   def show
-
   end
 
   def edit
-
   end
 
   def update
-
+    if @question.update(question_params)
+      flash[:success] = t "保存しました。"
+      redirect_to questions_path
+    else
+       render 'edit'
+    end
   end
 
   def destory
+  end
 
+  private
+  def question_params
+    params.require(:question).permit :question, :description
+  end
+
+  def set_question
+    @question = Question.find_by_id(params[:id])
   end
 end
