@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20200127034039) do
     t.datetime "updated_at", null: false
   end
 
+ActiveRecord::Schema.define(version: 20200127032925) do
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "password"
@@ -26,5 +28,4 @@ ActiveRecord::Schema.define(version: 20200127034039) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
 end
