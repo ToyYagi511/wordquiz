@@ -1,0 +1,27 @@
+= form_for :question, url: questions_path,
+  method: :put, class: "form-horizontal" do |f|
+    div
+      label.control-label
+        = "ID"
+        = hidden_field_tag :id, params[:id]
+        p = params[:id]
+    div
+      label.control-label
+        = "単語名"
+        = f.text_field :question,
+        class: "form-control js-input-conditions"
+    div
+      label.control-label
+        = "意味・説明"
+        = f.text_area :description,
+        class: "form-control js-input-conditions"
+    span.m-l
+      = button_tag type: :submit, name: "submit", value: "update", class: "btn btn-primary" do
+        = "保存"
+    / span.m-l
+    /   = link_to ("削除"), "#!", class: "btn btn-default js-delete-item",
+    /     data: {id: @question.id,
+    /       message: t(".confirm_delete"),
+    /       target: "#js-delete-tag-confirm-modal",
+    /       toggle: "modal",
+    /       can: can?(:destroy, :question)

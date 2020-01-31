@@ -1,0 +1,13 @@
+ = form_tag questions_path, class: "form-horizontal" do
+  div
+    label.control-label
+      = t "単語名"
+    label.control-label
+      = t "意味・説明"
+  div
+    = text_field_tag :question, nil, class: "form-control js-input-conditions"
+  div
+    = text_area_tag :description, nil, class: "form-control js-input-conditions"
+  div
+    = button_tag type: :submit do
+      ="登録"
